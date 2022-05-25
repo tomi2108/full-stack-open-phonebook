@@ -43,7 +43,7 @@ jobs:
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           severity: info
-          text: A new version of Pokedex deployed 
+          text: A new version of Phonebook deployed! 
           description: to https://${{secrets.HEROKU_APP}}.herokuapp.com/ by tsn
   tag_release:
     if: ${{ github.event_name != 'pull_request' && !contains(github.event.head_commit.message,'#skip') }}
