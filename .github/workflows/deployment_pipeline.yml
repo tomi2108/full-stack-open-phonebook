@@ -16,10 +16,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - name: change directory
-        run: cd server
       - name: npm install
-        run: npm install
+        run: cd server && npm install
       - name: lint
         run: npm run lint
       - name: build
