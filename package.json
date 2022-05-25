@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build && cd ../client && npm run build && cp -r build ../server && rm -rf build",
+    "build": "rm -rf build && npm run build:ui && cp -r build ../server && rm -rf build",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m herokuBuild && npm run deploy",
     "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build:ui": "cd client && react-scripts build"
   },
   "author": "",
   "license": "ISC",
