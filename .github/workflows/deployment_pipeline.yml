@@ -19,9 +19,9 @@ jobs:
       - name: npm install
         run: cd server && npm install
       - name: lint
-        run: npm run lint
+        run: cd server && npm run lint
       - name: build
-        run: npm run build
+        run: cd server && npm run build
       - name: Heroku deploy
         if: ${{ github.event_name == 'push' }}
         uses: akhileshns/heroku-deploy@v3.12.12
