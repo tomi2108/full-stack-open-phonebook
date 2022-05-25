@@ -29,6 +29,8 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP}}
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+          healthcheck: "https://${{secrets.HEROKU_APP}}.herokuapp.com/health"
+          rollbackonhealthcheckfailed: false
       - name: Discord Webhook Notify Failure
         if: failure()
         uses: rjstone/discord-webhook-notify@v1.0.4
@@ -43,7 +45,7 @@ jobs:
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           severity: info
-          text: A new version of Phonebook deployed! 
+          text: A new version of PhoneBook deployed !!
           description: to https://${{secrets.HEROKU_APP}}.herokuapp.com/ by tsn
   tag_release:
     if: ${{ github.event_name != 'pull_request' && !contains(github.event.head_commit.message,'#skip') }}
