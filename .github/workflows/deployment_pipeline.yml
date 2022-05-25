@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: "16"
       - name: npm install
-        run: cd server && npm install && cd .. && cd client && npm install
+        run: npm install
       - name: lint
-        run: cd server && npm run lint
+        run: npm run lint
       - name: build
-        run: cd server && npm run build
+        run: npm run build
       - name: Heroku deploy
         if: ${{ github.event_name == 'push' }}
         uses: akhileshns/heroku-deploy@v3.12.12
