@@ -22,4 +22,6 @@ const update = (id, newObject) => {
   return req;
 };
 
-export default { getAll, create, erase, update };
+const toExport = {getAll, create, erase, update}
+
+export default toExport;
