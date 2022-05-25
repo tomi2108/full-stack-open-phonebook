@@ -11,7 +11,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "build:ui": "cd client && react-scripts build"
+    "build:ui": "cd client && npm run build"
   },
   "author": "",
   "license": "ISC",
