@@ -17,6 +17,10 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan(configureMorgan));
 
+app.get("/health", (req, res) => {
+  res.send("ok");
+});
+
 app.get("/info", (req, res) => {
   const date = new Date();
   Entry.find({}).then((results) => {
